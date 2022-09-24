@@ -1,0 +1,48 @@
+
+##### Context API
+
+Context API, veri iletimini(state management) kolaylaştıran yapıdır. Propslar ile yapılan veri iletimini daha kolaylaştırmak için Context API kullanılabilir.
+Veriler context içerisinde tutulur ve verilere ihtiyaç duyulduğunda herhangi bir component içerisinden çağırılabilir. Context API için iki yöntem vardır. 
+Bunlar aşağıda anlatılmıştır.
+
+1- Default Value ---> this.context Yöntemi:
+	1.1 - Context nesnesi oluşturulur.
+	1.2 - Oluşturulan context nesnesine başlangıç değeri verilir.
+	1.3 - Oluşturulan context, diğer js dosyalarının kullanabilmesi için export edilir.
+	1.4 - Oluşturulan context, kullanılacak componentte import edilir.
+	1.5 - contextType yardımıyla context, ilgili component'e atanır.
+	1.6 - this.context yardımıyla ilgili verilere ulaşılır.
+	
+Kaynak: https://www.youtube.com/watch?v=KPze92u9aAU&list=PL-Hkw4CrSVq_mu7YEyg91-qTCR6YXeOrd&index=3
+
+2- Provider -----> Consumer Yöntemi:
+	2.1 - Context ve class component(BookContextProvider) olusturulur ve veriler state içerisine koyulur.
+	2.2 - Oluşturulan class component'ın render metodu içerisinde, context'e ait provider ile state'te bulunan veri alınır ve parent child ilişkisi
+	olduğundan dolayı child'a datalar {this.props.children} komutu ile aktarılır.
+	Example: 
+			<BookContext.Provider value={{...this.state}}>
+				{this.props.children}
+			</BookContext.Provider>
+	2.3 - App.js içerisinde ki verileri kullanacak component'ler oluşturulan BookContextProvider ile sarmalanır.
+	2.4 - Verinin gönderileceği componentte context import edilir.
+	2.5 - verinin kullanılacağı component'in render metodu içerisinde consumer ile proider'dan gelen veriler yakalanır.
+
+Kaynak: https://www.youtube.com/watch?v=rzpvbRAmEI0&list=PL-Hkw4CrSVq_mu7YEyg91-qTCR6YXeOrd&index=4
+
+Not: 1. yöntem ile bir component'e sadece bir context gönderilirken, 2. yöntem ile bir component'e birden fazla context gönderilebilir.
+Not: 1. yöntem sadece class componentlarda geçerliyken, 2. yöntem hem class hem functional componentlarda geçerlidir.
+Not: 2. yöntem ile context içinde taşınan datanın değeri, child componentlardan değiştirilebilir.
+		Kaynak - 1: https://www.youtube.com/watch?v=U8mPY0kFf4M&list=PL-Hkw4CrSVq_mu7YEyg91-qTCR6YXeOrd&index=6
+		Kaynak - 2: https://tsafaelmali.medium.com/react-context-api-nedir-nas%C4%B1l-kullan%C4%B1l%C4%B1r-7000b530ebd0
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+##### Hooks
+
+Hookslar, class componentlardaki bazı özelliklerin, fuctional componentlarda da kullanılabilmesini sağlar. (Functional Component + Hooks = Class Component)
+
+
+
+
+
+
