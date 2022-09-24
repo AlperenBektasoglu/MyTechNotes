@@ -1,0 +1,37 @@
+
+##### Asp.net Core Nedir?
+ASP.NET Core, Microsoft tarafından geliştirilen açık kaynak kodlu bir yazılım geliştirme platformudur.
+Bir web uygulaması geliştirildiğinde uygulamanın tüm platformlarda sorunsuz şekilde çalışması gerekmektedir. 
+Cross-Platform Desteği olarak adlandırdığımız bu özellik ASP.NET Core tarafından desteklenmektedir. 
+Böylece geliştirilen uygulamalar Mac OSx, Linux ve Windows işletim sistemleri üzerinde sorunsuz şekilde çalışmaktadır.
+Asp.net'e göre hızlıdır.
+Container; işletim sistemi seviyesinde sanallaştırma anlamına gelen, türkçe karşılığı konteyner olan, bulut (cloud computing) 
+dünyasında yaygın şekilde kullanılan bir teknolojidir. Kubernetes, Dockers ve diğer teknolojileri destekler. 
+ASP.NET Core bu teknolojilerin kolay şekilde uygulamalar içerisinde kullanılabilmesine olanak sağlar.
+
+Genel Notlar:
+1- Proje ayağa kalkarken ilk olarak Program.cs içerisindeki main metodu çalışır.
+2- CreateHostBuilder metodu .NetCore uygulamalarını yayınlayabilmek için bir server'ı ayağa kaldırıyor. O server'ın ismi Kestrel Web Server'dır.
+3- Web server ile ilgili ayarlamaları Startup.cs içerisinde tanımlanıyor.
+4- Startup.cs içerisinde ki ConfigureServices metodu, sizin ihtiyacınıza göre uygulamayı yapılandırmaya yarıyor. Hangi servise ihtiyacın var ise onu
+   ConfigureServices metodu içerisine eklemen gerekir.
+5- Startup.cs içerisinde ki Configure metodu ise gelen requestleri yönetmeye yarıyor. Requestleri belli aşamalardan(middleware) geçirmek istediğinizde,
+   bu middleware'ler Configure metodu içerisinde tanımlanır.(Örnek: gelen requestlerin hata var mı yok mu gibi(middleware1), Authentication işlemi(middleware2), 
+   Authorization(middleware3) gibi)
+   Kaynak: https://www.youtube.com/watch?v=iA4wLJtAIro&list=PLpiXyP9d3U1q251izX5xLHctZEmb8REr_&index=3
+6- Request'in alınması: IIS -> Kestrel -> Core /  Response'nin gönderilmesi: Core -> Kestrel -> IIS
+7- Startup.cs deki Configure metodu içerisindeki app.UseRouting metodu, size gelen request url'nin hangi route ile eşleştiğine karar veriyor.
+8- Startup.cs deki Configure metodu içerisindeki app.UseEndpoints metodu ise route'un çalıştırılmasını sağlıyor.
+9- Cotroller kullanımı ve controller ile route ayarlanması
+   Kaynak: https://www.youtube.com/watch?v=A8e26YNupXo&list=PLpiXyP9d3U1q251izX5xLHctZEmb8REr_&index=4
+   https://www.youtube.com/watch?v=sff4RuRyWXI&list=PLpiXyP9d3U1q251izX5xLHctZEmb8REr_&index=9
+10- Http metodları ile örnek api'ler oluşturma
+   Kaynak: https://www.youtube.com/watch?v=xxvcD5fXFuA&list=PLpiXyP9d3U1q251izX5xLHctZEmb8REr_&index=5
+   Kaynak: https://www.youtube.com/watch?v=3NMWrykkRYY&list=PLpiXyP9d3U1q251izX5xLHctZEmb8REr_&index=6
+11- Web Api projelerininde döküman oluşturmak için bir çok kütüphane mevcut. Microsoft desteğini de alan Swagger döküman oluşturmak için en ideal kütüphanedir.
+   Kaynak: https://www.youtube.com/watch?v=TV5kiEY1t8k&list=PLpiXyP9d3U1q251izX5xLHctZEmb8REr_&index=7
+12- IActionResult Kullanımı(Requeste Response dönerken dönüş durumunun(200,404 gibi) ayarlanması süreci )
+   Kaynak: https://www.youtube.com/watch?v=utIC0DTMIwk&list=PLpiXyP9d3U1q251izX5xLHctZEmb8REr_&index=8
+Not: [ApiController] attribute'si eğerki oluşturulan controller'ın üzerine eklenir ise validasyon kontrolleri otomatik yapılır. 
+13- Metotların asenkron şekilde yazılması metodun performansını arttırmaz. Bu işlem ölçeklendirmeyi yani saniyede daha fazla requeste cevap verilebilmesini sağlar.
+   Kaynak: https://www.youtube.com/watch?v=ulVvmS12NJo&list=PLpiXyP9d3U1q251izX5xLHctZEmb8REr_&index=10
